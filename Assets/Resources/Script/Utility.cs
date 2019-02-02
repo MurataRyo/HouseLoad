@@ -133,6 +133,7 @@ public struct GetPath
 
     public const string StageData = "StageData";
     public const string NormalMap = StageData + "/NormalMap";
+    public const string CreateMap = StageData + "/CreateMap";
 }
 #endregion
 

@@ -26,6 +26,7 @@ public class GameTask : MonoBehaviour
     public static int actionNum;    //アクション数
     [SerializeField] GameObject pause;
     [SerializeField] RectTransform pointer;
+    TextAsset text;
 
     private void Awake()
     {
@@ -34,7 +35,7 @@ public class GameTask : MonoBehaviour
         mapObjects = new List<MapObject>();
 
 
-        TextAsset text = new TextAsset();
+        text = new TextAsset();
         text = Resources.Load(GetPath.NormalMap + "/001_Stage", typeof(TextAsset)) as TextAsset;
 
         Utility.MapLoad(text.text, out mapData, out PlayerTask.playerPos, out mapObjects);
@@ -42,7 +43,15 @@ public class GameTask : MonoBehaviour
 
     private void Update()
     {
-        switch(mode)
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            using (StreamWriter streamWriter = new StreamWriter(Application.dataPath + "/Resources/" + GetPath.CreateMap + "/100_Stage.txt"))
+            {
+                streamWriter.Write(text.text);
+            }
+        }
+
+        switch (mode)
         {
             case Mode.main:
                 if(Input.GetKeyDown(KeyCode.Escape))
