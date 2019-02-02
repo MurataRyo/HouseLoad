@@ -31,6 +31,8 @@ public class Water : Gimmick
                 break;
             }
         }
+
+        //基本アイテム数を減らすので２つ増やして1つ増えたようにする
         PlayerTask.itemNum[(int)Utility.ItemId.Baketu]+=2;
         GameTask.mapData[position.x][position.y] = (int)Utility.MapId.Ground;
         GameObject go = Instantiate(Utility.objectId[(int)Utility.ObjectId.Ground]);

@@ -108,12 +108,13 @@ public class PlayerTask : MonoBehaviour
         MapObject mob = null;
 
         int itemId = itemUis[buttonNum - 1].itemId;
-
+        
         if (!Input.GetKeyDown(code) || itemNum[itemId] <= 0)
             return;
 
         if (GameTask.PosInMapObject(next, out mob))
         {
+            Debug.Log(nextObject);
             if (mob.go.GetComponent<Gimmick>() == null)
                 return;
 

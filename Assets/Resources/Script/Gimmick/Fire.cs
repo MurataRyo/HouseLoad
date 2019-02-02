@@ -32,7 +32,7 @@ public class Fire : Gimmick
             }
         }
 
-        GameTask.mapData[position.x][position.y] = 2;
+        GameTask.mapData[position.x][position.y] = (int)Utility.MapId.Ground;
         GameTask.actionNum--;
         Destroy(gameObject);
     }

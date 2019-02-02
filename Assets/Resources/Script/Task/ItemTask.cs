@@ -13,7 +13,7 @@ public class ItemTask : MonoBehaviour
     GameObject canvas;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         canvas = GameObject.FindGameObjectWithTag("Canvas");
         itemUis = new List<ItemUi>();
